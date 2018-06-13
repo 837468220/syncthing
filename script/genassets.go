@@ -70,7 +70,7 @@ func walkerFor(basePath string) filepath.WalkFunc {
 			name, _ = filepath.Rel(basePath, name)
 			assets = append(assets, asset{
 				Name: filepath.ToSlash(name),
-				Data: fmt.Sprintf("%#v", buf.Bytes()), // "[]byte{0x00, 0x01, ...}"
+				Data: fmt.Sprintf("[]byte(%q)", buf.String()),
 			})
 		}
 
